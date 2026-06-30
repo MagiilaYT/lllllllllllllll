@@ -1,0 +1,27 @@
+name: WePlay Version Check
+
+on:
+  schedule:
+    - cron: '0 */6 * * *'  # Runs every 6 hours
+  workflow_dispatch:  # Allows manual trigger
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          
+      - name: Check version and notify
+        env:
+          WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK }}
+          APP_ID: "1580330718"
+        run: |
+          python appstore_version_webhook.py \
+            --app-id "$APP_ID" \
+            --webhook-url "$WEBHOOK_URL"
+
