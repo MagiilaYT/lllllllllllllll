@@ -83,8 +83,8 @@ def send_discord_webhook(webhook_url: str, app_info: dict, previous_version: str
     fields.append({"name": "📝 Release Notes", "value": release_notes, "inline": False})
 
     payload = {
-        "username": "App Store Tracker",
-        "avatar_url": "https://developer.apple.com/assets/elements/icons/app-store/app-store-128x128.png",
+        "username": "WePlay Version Checker",
+        "avatar_url": "https://weplay.kesug.com/WePlayUnbanned.jpeg",
         "embeds": [
             {
                 "title": f"🆕 {app_name} Updated!",
