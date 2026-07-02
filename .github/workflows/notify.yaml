@@ -9,15 +9,15 @@ jobs:
   check:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4.2.2
       
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v5.5.0
         with:
           python-version: '3.11'
       
       - name: Restore version state
-        uses: actions/cache@v4
+        uses: actions/cache@v4.2.3
         with:
           path: last_version.json
           key: version-state-${{ github.run_id }}
@@ -33,7 +33,7 @@ jobs:
             --webhook-url "$WEBHOOK_URL"
       
       - name: Save version state
-        uses: actions/cache@v4
+        uses: actions/cache@v4.2.3
         with:
           path: last_version.json
           key: version-state-${{ github.run_id }}
