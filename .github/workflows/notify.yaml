@@ -2,8 +2,7 @@ name: WePlay Version Check
 
 on:
   schedule:
-    - cron: '0 */3 * * *'
-    - cron: '0 12 * * *'
+    - cron: '* * * * *'
   workflow_dispatch:
 
 jobs:
@@ -38,4 +37,3 @@ jobs:
         with:
           path: last_version.json
           key: version-state-${{ github.run_id }}
-
